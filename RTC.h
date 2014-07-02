@@ -7,7 +7,6 @@ void RTCopstart(){
       Serial.println("RTC niet gevonden");
   } else {
   tijdcheck = 1;
-  Serial.println("RTC geinitialiseerd");
   Serial.println("RTC tijd:");
   if(hour() < 10)Serial.print("0");Serial.print(hour()); Serial.print(":");if(minute() < 10)Serial.print("0");Serial.print(minute());Serial.print(":");if(second() < 10)Serial.print("0");Serial.print(second());
   Serial.print(" ");
