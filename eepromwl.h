@@ -27,6 +27,12 @@ void EEPROMinit(){
     lamp6status = eepromwl.read(6);
     boilerstatus = eepromwl.read(13);
     boileroverride = eepromwl.read(16);
+    if(boilerstatus > 1 || boileroverride > 1){
+      boilerstatus = 0;
+      eepromwl.write(13, boilerstatus);
+      boileroverride = 0;
+      eepromwl.write(16, boileroverride);
+    }
     boileraan = eepromwl.read(14);
     boileruit = eepromwl.read(15);
     if(boileraan < 0 || boileruit > 24){
