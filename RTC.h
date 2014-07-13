@@ -13,3 +13,17 @@ void RTCopstart(){
   Serial.print(day());Serial.print("/");Serial.print(month());Serial.print("/");Serial.println(year());
   }
 }
+
+void Boilercheck(){
+  if(hour() < boileruit && hour() >= boileraan && boilerstatus == 0){
+    boilerstatus = 1;
+    eepromwl.write(13, boilerstatus); 
+  }else if(boilerstatus == 1 && boileroverride == 0){
+    boilerstatus = 0;
+    eepromwl.write(13, boilerstatus); 
+  }else if(boilerstatus == 0 && boileroverride == 1){
+    boilerstatus = 1;
+    eepromwl.write(13, boilerstatus); 
+  }
+  digitalWrite(8, boilerstatus);
+}

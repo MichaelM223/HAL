@@ -6,7 +6,7 @@ body {
   color: #222;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 15px;
-  width:100%;
+  width:90%;
   padding: 0px 50px 0px 50px;
   }
 nav {
@@ -17,7 +17,8 @@ nav {
   margin: 0px 0px 0px 0px;
   overflow: hidden;
   z-index:999;
-  position:fixed;
+  position: absolute;
+/*  position:fixed;*/
 }
 
   nav ul {
@@ -65,7 +66,7 @@ nav {
 /* EINDE menu */
 /* Containers */
 #wrapper {
-    width: 100%;
+    width: 90%;
     border: 1px solid black;
     overflow: hidden; /* add this to contain floated children */
 }

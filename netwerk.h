@@ -36,11 +36,19 @@ boolean index_handler(TinyWebServer& web_server) {
   return true;
 }
 
+boolean boileroverride_handler(TinyWebServer& web_server) {
+  Serial.print("Boiler override");
+  boileroverride = !boileroverride;
+  eepromwl.write(16, boileroverride);
+  return true; 
+}
+
 TinyWebServer::PathHandler handlers[] = {
   {"/", TinyWebServer::GET, &index_handler },
   {"/" "status.xml*", TinyWebServer::GET, &xml_handler },
   {"/" "schakelaar*", TinyWebServer::GET, &schakelaar_handler },
   {"/" "alloff*", TinyWebServer::GET, &alloff_handler },
+  {"/" "boileroverride*", TinyWebServer::GET, &boileroverride_handler },
   {"/" "*", TinyWebServer::GET, &file_handler },
   {NULL},
 };

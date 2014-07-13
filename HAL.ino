@@ -49,6 +49,10 @@ void setup()
   pinMode(4, OUTPUT); //SS SDkaart
   digitalWrite(10, HIGH);
   digitalWrite(4, HIGH);
+  pinMode(8, OUTPUT); //Relais 1
+  pinMode(9, OUTPUT); //Relais 2
+  digitalWrite(8, HIGH);
+  digitalWrite(9, HIGH);
   SDinit();
   Netwerkinit();
   EEPROMinit();
@@ -64,6 +68,7 @@ void loop()
   wdt_reset();
   web.process();
   ntpsync.check();
+  Boilercheck();
 }
 
 void LED(char kleur){
