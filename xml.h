@@ -27,6 +27,12 @@ boolean xml_handler(TinyWebServer& web_server) {
     client.print("    <dimmer4>");client.print(50);client.println("</dimmer4>");
     client.println("  </input-dimmer>");
     client.println("</Lampen>");
+    client.println("<Boiler>");
+    client.print("  <boilerstatus>");client.print(boilerstatus);client.println("</boilerstatus>");
+    client.print("  <boileroverride>");client.print(boileroverride);client.println("</boileroverride>");
+    client.print("  <boileraan>");client.print(boileraan);client.println("</boileraan>");
+    client.print("  <boileruit>");client.print(boileruit);client.println("</boileruit>");
+    client.println("</Boiler>");
     return true;
 }
 
