@@ -15,15 +15,16 @@ void RTCopstart(){
 }
 
 void Boilercheck(){
-  if(hour() < boileruit && hour() >= boileraan && boilerstatus == 0){
+  if(hour() < boileruit && hour() >= boileraan && boilerstatus == 0 && boileraltijduit == 0){
     boilerstatus = 1;
     eepromwl.write(13, boilerstatus); 
-  }else if((hour() > boileruit || hour() < boileraan) && boilerstatus == 1 && boileroverride == 0){
+  }else if((hour() >= boileruit || hour() < boileraan) && boilerstatus == 1 && boileraltijdaan == 0){
     boilerstatus = 0;
     eepromwl.write(13, boilerstatus); 
-  }else if(boilerstatus == 0 && boileroverride == 1){
+  }else if(boilerstatus == 0 && boileraltijdaan == 1){
     boilerstatus = 1;
     eepromwl.write(13, boilerstatus); 
   }
+  delay(1000); //delay voor veiligheid in geval van fout in bovenstaande loop
   digitalWrite(8, boilerstatus);
 }

@@ -36,10 +36,36 @@ boolean index_handler(TinyWebServer& web_server) {
   return true;
 }
 
-boolean boileroverride_handler(TinyWebServer& web_server) {
-  Serial.print("Boiler override");
-  boileroverride = !boileroverride;
-  eepromwl.write(16, boileroverride);
+boolean boileraltijdaan_handler(TinyWebServer& web_server) {
+  Serial.print("Boiler aan");
+  boileraltijdaan = !boileraltijdaan;
+  eepromwl.write(16, boileraltijdaan);
+  boileraltijduit = 0;
+  eepromwl.write(17, boileraltijduit);
+  return true; 
+}
+
+boolean boileraltijduit_handler(TinyWebServer& web_server) {
+  Serial.print("Boiler uit");
+  boileraltijduit = !boileraltijduit;
+  eepromwl.write(17, boileraltijduit);
+  boileraltijdaan = 0;
+  eepromwl.write(16, boileraltijdaan);
+  return true; 
+}
+
+boolean boilerreset_handler(TinyWebServer& web_server) {
+  Serial.print("Boiler reset");
+  boilerstatus = 0;
+  eepromwl.write(13, boilerstatus);
+  boileraan = 5;
+  eepromwl.write(14, boileraan);
+  boileruit = 7;
+  eepromwl.write(15, boileruit);
+  boileraltijdaan = 0;
+  eepromwl.write(16, boileraltijdaan);
+  boileraltijduit = 0;
+  eepromwl.write(17, boileraltijduit);
   return true; 
 }
 
@@ -48,7 +74,9 @@ TinyWebServer::PathHandler handlers[] = {
   {"/" "status.xml*", TinyWebServer::GET, &xml_handler },
   {"/" "schakelaar*", TinyWebServer::GET, &schakelaar_handler },
   {"/" "alloff*", TinyWebServer::GET, &alloff_handler },
-  {"/" "boileroverride*", TinyWebServer::GET, &boileroverride_handler },
+  {"/" "boileraltijdaan*", TinyWebServer::GET, &boileraltijdaan_handler },
+  {"/" "boileraltijduit*", TinyWebServer::GET, &boileraltijduit_handler },
+  {"/" "boilerreset*", TinyWebServer::GET, &boileraltijduit_handler },
   {"/" "*", TinyWebServer::GET, &file_handler },
   {NULL},
 };
