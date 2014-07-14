@@ -18,7 +18,7 @@ void Boilercheck(){
   if(hour() < boileruit && hour() >= boileraan && boilerstatus == 0){
     boilerstatus = 1;
     eepromwl.write(13, boilerstatus); 
-  }else if(boilerstatus == 1 && boileroverride == 0){
+  }else if((hour() > boileruit || hour() < boileraan) && boilerstatus == 1 && boileroverride == 0){
     boilerstatus = 0;
     eepromwl.write(13, boilerstatus); 
   }else if(boilerstatus == 0 && boileroverride == 1){
