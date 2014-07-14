@@ -77,7 +77,7 @@ boolean reboot_handler(TinyWebServer& web_server) {
 TinyWebServer::PathHandler handlers[] = {
   {"/", TinyWebServer::GET, &index_handler },
   {"/" "status.xml*", TinyWebServer::GET, &xml_handler },
-  {"/peer/" "*", TinyWebServer::GET, &file_handler },
+  {"/PEER/" "*", TinyWebServer::GET, &file_handler },
   {"/" "schakelaar*", TinyWebServer::GET, &schakelaar_handler },
   {"/" "alloff*", TinyWebServer::GET, &alloff_handler },
   {"/" "boileraltijdaan*", TinyWebServer::GET, &boileraltijdaan_handler },
