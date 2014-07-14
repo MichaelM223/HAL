@@ -51,7 +51,7 @@ void setup()
   digitalWrite(4, HIGH);
   pinMode(8, OUTPUT); //Relais 1
   pinMode(9, OUTPUT); //Relais 2
-  digitalWrite(8, HIGH);
+  digitalWrite(8, LOW);
   digitalWrite(9, HIGH);
   SDinit();
   Netwerkinit();
