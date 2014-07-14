@@ -77,10 +77,6 @@ boolean reboot_handler(TinyWebServer& web_server) {
 TinyWebServer::PathHandler handlers[] = {
   {"/", TinyWebServer::GET, &index_handler },
   {"/" "status.xml*", TinyWebServer::GET, &xml_handler },
-<<<<<<< HEAD
-  {"/PEER/" "*", TinyWebServer::GET, &file_handler },
-=======
->>>>>>> parent of 0dcebcd... Aanpassing HTML om laden sneller te krijgen
   {"/" "schakelaar*", TinyWebServer::GET, &schakelaar_handler },
   {"/" "alloff*", TinyWebServer::GET, &alloff_handler },
   {"/" "boileraltijdaan*", TinyWebServer::GET, &boileraltijdaan_handler },
