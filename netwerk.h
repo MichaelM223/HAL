@@ -69,6 +69,11 @@ boolean boilerreset_handler(TinyWebServer& web_server) {
   return true; 
 }
 
+boolean reboot_handler(TinyWebServer& web_server) {
+  Serial.print("Herstarten!");
+  while(true);
+}
+
 TinyWebServer::PathHandler handlers[] = {
   {"/", TinyWebServer::GET, &index_handler },
   {"/" "status.xml*", TinyWebServer::GET, &xml_handler },
@@ -77,6 +82,7 @@ TinyWebServer::PathHandler handlers[] = {
   {"/" "boileraltijdaan*", TinyWebServer::GET, &boileraltijdaan_handler },
   {"/" "boileraltijduit*", TinyWebServer::GET, &boileraltijduit_handler },
   {"/" "boilerreset*", TinyWebServer::GET, &boileraltijduit_handler },
+  {"/" "reboot", TinyWebServer::GET, &reboot_handler },
   {"/" "*", TinyWebServer::GET, &file_handler },
   {NULL},
 };
