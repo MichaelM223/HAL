@@ -81,7 +81,7 @@ TinyWebServer::PathHandler handlers[] = {
   {"/" "alloff*", TinyWebServer::GET, &alloff_handler },
   {"/" "boileraltijdaan*", TinyWebServer::GET, &boileraltijdaan_handler },
   {"/" "boileraltijduit*", TinyWebServer::GET, &boileraltijduit_handler },
-  {"/" "boilerreset*", TinyWebServer::GET, &boileraltijduit_handler },
+  {"/" "boilerreset*", TinyWebServer::GET, &boilerreset_handler },
   {"/" "reboot", TinyWebServer::GET, &reboot_handler },
   {"/" "*", TinyWebServer::GET, &file_handler },
   {NULL},
